@@ -12,6 +12,7 @@ class TimeStampedModel(models.Model):
 
 class Teacher(TimeStampedModel):
     name = models.CharField(max_length=212)
+    image = models.ImageField(upload_to='teachers')
     surname = models.CharField(max_length=212)
     email = models.EmailField(null=True, blank=True)
     experience = models.CharField(max_length=212)

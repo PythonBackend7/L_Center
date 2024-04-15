@@ -5,7 +5,7 @@ from .models import Course, Teacher
 # Create your views here.
 
 def home_view(request):
-    courses = Course.objects.all('-id')[:3]
+    courses = Course.objects.all().order_by('-id')[:3]
     teachers = Teacher.objects.all().order_by('id')[:3]
     context = {'courses': courses, 'teachers': teachers}
     return render(request, 'index.html', context)
@@ -15,11 +15,12 @@ def courselist_view(request):
     courses = Course.objects.all()
     tag = request.GET.get('tag')
     search = request.GET.get('q')
+    print(search)
     if search:
         courses = courses.filter(name__icontains=search)
     if tag:
         courses = courses.filter(tag__contains=tag)
-    context = {'courses': courses, 'tag': tag, 'search': search}
+    context = {'courses': courses}
     return render(request, 'kurslar.html', context)
 
 
