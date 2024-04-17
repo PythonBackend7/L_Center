@@ -38,3 +38,12 @@ class Course(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+
+class Carusele(TimeStampedModel):
+    image = models.ImageField(upload_to='carusele')
+    title = models.CharField(max_length=212)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title

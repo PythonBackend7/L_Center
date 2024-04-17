@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course, Teacher, Tag
+from .models import Course, Teacher, Tag, Carusele
 
 
 # Register your models here.
@@ -19,3 +19,4 @@ class CourseAdmin(admin.ModelAdmin):
 admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Tag)
+admin.site.register(Carusele)
